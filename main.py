@@ -6,11 +6,9 @@ from pygame import mixer
 
 name = str(simpledialog.askstring("UserName", "Please enter your name:"))
 
-def write_(ti, *te):
-    with open(f"{ti}.log","a") as f:
-        s_ti = str(ti)
-        s_te = str(te)
-        f.write(s_ti + s_te)
+def write_():
+    with open(f"{name}.log","a") as f:
+        f.write(f"player's name: {name}, clicks time(s): {str(click)}.\n")
         f.close()
 click = 0
 window = tk.Tk()
@@ -32,7 +30,7 @@ def onclick():
     window.update()
     click += 1
     print("apple was clicked {} time(s)".format(click))
-    write_(name, str(click) + time.strftime("  %H:%M:%S"))
+    write_()
     time.sleep(0.2)
     button.config(image=image1)
     window.geometry('97x107+30+50')
